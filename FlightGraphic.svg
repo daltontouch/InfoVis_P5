@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 8940 1631.33">
+    <defs>
+        <style>
+            .cls-1{opacity:0.64;}.cls-2{fill:#fff;stroke:#000;stroke-miterlimit:10;stroke-width:20px;}
+        </style>
+    </defs>
+    <title>
+        FlightGraphic
+    </title>
+    <g id="Image_11_Image" class="cls-1" data-name="Image 11 Image">
+        <image id="Image_11_Image-2" width="8940" height="1490" data-name="Image 11 Image" xlink:href="ai155535919421.png"/>
+    </g>
+    <g id="Group_2" data-name="Group 2">
+        <g id="standing">
+            <image id="Layer_2_Image" width="939" height="367" data-name="Layer 2 Image" transform="translate(0 1123)" xlink:href="img/standing.png"/>
+        </g>
+        <g id="taxi">
+            <image id="Layer_2_copy_Image" width="939" height="367" data-name="Layer 2 copy Image" transform="translate(1000 1123)" xlink:href="img/taxi.png"/>
+        </g>
+        <g id="takeoff">
+            <image id="Layer_2_copy_2_Image" width="974" height="287" data-name="Layer 2 copy 2 Image" transform="translate(1941 1142)" xlink:href="img/takeoff.png"/>
+        </g>
+        <g id="climbing">
+            <image id="Layer_2_copy_3_Image" width="916" height="540" data-name="Layer 2 copy 3 Image" transform="translate(2997 462)" xlink:href="img/climbing.png"/>
+        </g>
+        <g id="cruising">
+            <image id="Layer_2_copy_4_Image" width="939" height="367" data-name="Layer 2 copy 4 Image" transform="translate(4001)" xlink:href="img/crusing.png"/>
+        </g>
+        <g id="descent">
+            <image id="Layer_2_copy_5_Image" width="772" height="737" data-name="Layer 2 copy 5 Image" transform="translate(5084 265)" xlink:href="img/descent.png"/>
+        </g>
+        <g id="approach">
+            <image id="Layer_2_copy_6_Image" width="924" height="444" data-name="Layer 2 copy 6 Image" transform="translate(5996 914)" xlink:href="img/approach.png"/>
+        </g>
+        <g id="landing">
+            <image id="Layer_2_copy_7_Image" width="939" height="367" data-name="Layer 2 copy 7 Image" transform="translate(7001 1123)" xlink:href="img/landing.png"/>
+        </g>
+        <g id="other">
+            <image id="Layer_2_copy_8_Image" width="939" height="367" data-name="Layer 2 copy 8 Image" transform="translate(8001 1123)" xlink:href="img/other.png"/>
+        </g>
+        <path d="M411.35,3258.57c123.1,3.9,310.08,8.52,538.47,8.76,16.64,0,335.91.18,543.38-7.93,331.64-13,683-26.72,1072.18-144.16,0,0,546.82-165,1184.81-630.7,1.43-1,93.5-66.45,277.63-197.27,159.43-113.27,239.92-170.21,278.07-185.38,230.95-91.83,451.38-15.22,481.09-4.41,73.08,26.58,105.77,53.68,273.65,185.37,292.8,229.67,441.28,345.89,543.34,413.56,90.73,60.17,229.15,151,422,234.33,169.54,73.2,319.74,114,526.27,157.47,495.66,104.28,899.3,136.14,983.48,142.5,290,21.91,669.27,35.2,1116,9.67" class="cls-2" transform="translate(-30 -1646)"/>
+    </g>
+</svg>
