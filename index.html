@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -6,10 +7,12 @@
     <title></title>
     <script src="http://d3js.org/d3.v4.min.js"></script>
     <script src="main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+<<<<<<< HEAD
     <h1>Airline Incidents</h1>
     <div id="standingGraph"></div>
     <!-- <div id="flightChart"></div> -->
@@ -21,6 +24,63 @@
     <div id="descentGraph"></div>
     <div id="approachGraph"></div>
     <div id="landingGraph"></div>
+=======
+    <div class="card card-1 col-md-10 text-md-center bg-dark">
+        <div class="card-body">
+            <h1 id="page-title" class="centered">AIRLINE INCIDENTS</h1>
+            <div class="p-story">
+                Aircraft Incidents. Nearly everyone who has flown on an aircraft has, at some point or another, experienced fear. What if something bad happens? What if the plane crashes? What if we fly into a storm? Most of us, after flying a few times, get over these
+                fears and learn to put them aside - until we see an accident on the news. Most recently, in March 2019, Ethiopian Airlines Flight 302 crashed just minutes after takeoff, killing all 157 passengers. But is this kind of scenario common?
+                How many deaths have been caused by airline crashes, and what has caused them? Using data from hundreds of aviation incidents over many years, we tell the story below.
+            </div>
+            <div id="graph1" class="centered"></div>
+            <div id="buttonBar" class="centered">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-warning">
+              1 Button
+            </button>
+                    <button type="button" class="btn btn-outline-warning">
+              2 Button
+            </button>
+                </div>
+            </div>
+            <div class="section-title">
+                Flight Phase: Standing
+            </div>
+            <div id="standingGraph"></div>
+            <div class="section-title">
+                Flight Phase: Taxiing
+            </div>
+            <!-- <div id="flightChart"></div> -->
+
+            <div id="taxiGraph"></div>
+            <div class="section-title">
+                Flight Phase: Takeoff
+            </div>
+            <div id="takeoffGraph"></div>
+            <div class="section-title">
+                Flight Phase: Climbing
+            </div>
+            <div id="climbGraph"></div>
+            <div class="section-title">
+                Flight Phase: Cruising
+            </div>
+            <div id="cruiseGraph"></div>
+            <div class="section-title">
+                Flight Phase: Descending
+            </div>
+            <div id="descentGraph"></div>
+            <div class="section-title">
+                Flight Phase: Approaching
+            </div>
+            <div id="approachGraph"></div>
+            <div class="section-title">
+                Flight Phase: Landing
+            </div>
+            <div id="landingGraph"></div>
+        </div>
+    </div>
+>>>>>>> cb94f5d70520a52e57a026a3d3b049c1bafc8c58
 </body>
 
 </html>

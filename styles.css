@@ -1,9 +1,67 @@
+body {
+    /* height: 100%; */
+    padding-top: 20px;
+    background-color: black;
+}
+
+#page-title {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    color: white;
+    padding: 50px 10px 50px 10px;
+    font-size: 48pt;
+}
+
+.section-title {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    color: white;
+    padding-top: 75px;
+    padding-bottom: 5px;
+    font-size: 24pt;
+}
+
+.centered {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-story {
+    /* padding-bottom: 50px; */
+    color: white;
+    text-align: justify;
+    padding: 0px 50px 50px 50px;
+}
+
+text {
+    fill: white;
+}
+
+.card {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+    background-color: blue;
+}
+
+.axis path {
+    stroke: white;
+}
+
+.axis line {
+    stroke: white;
+}
+
 .fatalBar {
     fill: steelblue;
 }
+
 .seriousBar {
     fill: red;
 }
+
 .uninjuredBar {
     fill: purple;
 }
@@ -11,6 +69,7 @@
     transition: text 5s ease;
     visibility: visible;
 }
+
 .invisibleButton {
     visibility: hidden;
 }

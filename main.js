@@ -432,44 +432,51 @@ function start() {
                 });
             var taxiIncidents = incidents
                 .filter(function(d) {
-                    return d.key == "TAXI";
-                })[0].values.map(function(v) {
+                    return d.key == 'TAXI';
+                })[0]
+                .values.map(function(v) {
                     return v.value;
                 });
             var takeoffIncidents = incidents
                 .filter(function(d) {
-                    return d.key == "TAKEOFF";
-                })[0].values.map(function(v) {
+                    return d.key == 'TAKEOFF';
+                })[0]
+                .values.map(function(v) {
                     return v.value;
                 });
             var climbIncidents = incidents
                 .filter(function(d) {
-                    return d.key == "CLIMB";
-                })[0].values.map(function(v) {
+                    return d.key == 'CLIMB';
+                })[0]
+                .values.map(function(v) {
                     return v.value;
                 });
             var cruiseIncidents = incidents
                 .filter(function(d) {
-                    return d.key == "CRUISE";
-                })[0].values.map(function(v) {
+                    return d.key == 'CRUISE';
+                })[0]
+                .values.map(function(v) {
                     return v.value;
                 });
             var descentIncidents = incidents
                 .filter(function(d) {
-                    return d.key == "DESCENT";
-                })[0].values.map(function(v) {
+                    return d.key == 'DESCENT';
+                })[0]
+                .values.map(function(v) {
                     return v.value;
                 });
             var approachIncidents = incidents
                 .filter(function(d) {
-                    return d.key == "APPROACH";
-                })[0].values.map(function(v) {
+                    return d.key == 'APPROACH';
+                })[0]
+                .values.map(function(v) {
                     return v.value;
                 });
             var landingIncidents = incidents
                 .filter(function(d) {
-                    return d.key == "LANDING";
-                })[0].values.map(function(v) {
+                    return d.key == 'LANDING';
+                })[0]
+                .values.map(function(v) {
                     return v.value;
                 });
 
@@ -511,7 +518,8 @@ function start() {
                         return 'translate(' + bigBuffer + ', 0)';
                     })
                     .call(yAxis);
-                bars.append('g')
+                bars
+                    .append('g')
                     .selectAll('.fatalBar')
                     .data(test)
                     .enter()
@@ -525,13 +533,14 @@ function start() {
                             return d.fatal;
                         })));
                     })
-                    .attr('width', xScale.bandwidth() * .2)
+                    .attr('width', xScale.bandwidth() * 0.2)
                     .attr('height', function(d) {
                         return height - yScale(d3.sum(d.value.map(function(d) {
                             return d.fatal;
                         }))) - bigBuffer;
                     });
-                bars.append('g')
+                bars
+                    .append('g')
                     .selectAll('.seriousBar')
                     .data(test)
                     .enter()
@@ -545,7 +554,7 @@ function start() {
                             return d.serious;
                         })));
                     })
-                    .attr('width', xScale.bandwidth() * .2)
+                    .attr('width', xScale.bandwidth() * 0.2)
                     .attr('height', function(d) {
                         return height - yScale(d3.sum(d.value.map(function(d) {
                             return d.serious;
