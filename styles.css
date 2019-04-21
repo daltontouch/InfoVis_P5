@@ -1,0 +1,9 @@
+.fatalBar {
+    fill: steelblue;
+}
+.seriousBar {
+    fill: red;
+}
+.uninjuredBar {
+    fill: purple;
+}
