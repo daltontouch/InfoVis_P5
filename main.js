@@ -15,7 +15,8 @@ function start() {
     var currentPhase = "STANDING";
 
     var svg = d3
-        .select('img/#FlightGraphic')
+        //.select('img/#FlightGraphic')
+        .select(graph)
         .append('svg')
         .attr('width', width)
         .attr('height', height);
@@ -41,7 +42,7 @@ function start() {
         .append('button')
         .text('No, click me!');
 
-    // var bars = svg.append('g');
+    var bars = svg.append('g');
 
     var xScale = d3.scaleBand().rangeRound([0, width - (bigBuffer * 2)], 0.3);
     var yScale = d3.scaleLinear().range([height - bigBuffer, littleBuffer]);
