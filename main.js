@@ -70,8 +70,9 @@ function start() {
     //     .attr('height', height);
 
     //Navigation Buttons
-    d3.select(buttonBar).append('button').text('Click Me!');
-    d3.select(buttonBar).append('button').text('No, click me!');
+    /**
+     * Navigation Buttons are now located in INDEX.HTML
+     */
 
     var standingBars = standingSvg.append('g');
     var taxiBars = taxiSvg.append('g');

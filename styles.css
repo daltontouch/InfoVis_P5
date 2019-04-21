@@ -4,14 +4,21 @@ body {
     background-color: black;
 }
 
-h1 {
+#page-title {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: 700;
+    color: white;
+    padding: 50px 10px 50px 10px;
+    font-size: 48pt;
 }
 
-#page-title {
+.section-title {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
     color: white;
-    padding-bottom: 50px;
+    padding-top: 75px;
+    padding-bottom: 5px;
+    font-size: 24pt;
 }
 
 .centered {
@@ -22,8 +29,10 @@ h1 {
 }
 
 .p-story {
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
     color: white;
+    text-align: justify;
+    padding: 0px 50px 50px 50px;
 }
 
 text {
@@ -56,9 +65,11 @@ text {
 .uninjuredBar {
     fill: purple;
 }
-.visibleButton{
+
+.visibleButton {
     visibility: visible;
 }
+
 .invisibleButton {
     visibility: hidden;
 }
