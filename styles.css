@@ -7,3 +7,9 @@
 .uninjuredBar {
     fill: purple;
 }
+.visibleButton{
+    visibility: visible;
+}
+.invisibleButton {
+    visibility: hidden;
+}

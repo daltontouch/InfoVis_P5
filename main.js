@@ -1,10 +1,17 @@
 window.onload = start;
 
 function start() {
-    var graph = document.getElementById('graph');
+    var standingGraph = document.getElementById('standingGraph');
+    var taxiGraph = document.getElementById('taxiGraph');
+    var takeoffGraph = document.getElementById('takeoffGraph');
+    var climbGraph = document.getElementById('climbGraph');
+    var cruiseGraph = document.getElementById('cruiseGraph');
+    var descentGraph = document.getElementById('descentGraph');
+    var approachGraph = document.getElementById('approachGraph');
+    var landingGraph = document.getElementById('landingGraph');
     var buttonBar = document.getElementById('buttonBar');
 
-    console.log(graph);
+    //console.log(graph);
     console.log(buttonBar);
 
     var width = 900;
@@ -14,9 +21,43 @@ function start() {
 
     var currentPhase = "STANDING";
 
-    var svg = d3
-        //.select('img/#FlightGraphic')
-        .select(graph)
+    var standingSvg = d3
+        .select(standingGraph)
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height);
+    var taxiSvg = d3
+        .select(taxiGraph)
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height);
+    var takeoffSvg = d3
+        .select(takeoffGraph)
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height);
+    var climbSvg = d3
+        .select(climbGraph)
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height);
+    var cruiseSvg = d3
+        .select(cruiseGraph)
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height);
+    var descentSvg = d3
+        .select(descentGraph)
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height);
+    var approachSvg = d3
+        .select(approachGraph)
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height);
+    var landingSvg = d3
+        .select(landingGraph)
         .append('svg')
         .attr('width', width)
         .attr('height', height);
@@ -42,7 +83,14 @@ function start() {
         .append('button')
         .text('No, click me!');
 
-    var bars = svg.append('g');
+    var standingBars = standingSvg.append('g');
+    var taxiBars = taxiSvg.append('g');
+    var takeoffBars = takeoffSvg.append('g');
+    var climbBars = climbSvg.append('g');
+    var cruiseBars = cruiseSvg.append('g');
+    var descentBars = descentSvg.append('g');
+    var approachBars = approachSvg.append('g');
+    var landingBars = landingSvg.append('g');
 
     var xScale = d3.scaleBand().rangeRound([0, width - (bigBuffer * 2)], 0.3);
     var yScale = d3.scaleLinear().range([height - bigBuffer, littleBuffer]);
@@ -85,87 +133,137 @@ function start() {
                  }; })
                 .entries(data);
 
-            var currentIncidents = incidents
+            var standingIncidents = incidents
                 .filter(function(d) {
                     return d.key == "STANDING";
                 })[0].values.map(function(v) {
                     return v.value;
                 });
+            var taxiIncidents = incidents
+                .filter(function(d) {
+                    return d.key == "TAXI";
+                })[0].values.map(function(v) {
+                    return v.value;
+                });
+            var takeoffIncidents = incidents
+                .filter(function(d) {
+                    return d.key == "TAKEOFF";
+                })[0].values.map(function(v) {
+                    return v.value;
+                });
+            var climbIncidents = incidents
+                .filter(function(d) {
+                    return d.key == "CLIMB";
+                })[0].values.map(function(v) {
+                    return v.value;
+                });
+            var cruiseIncidents = incidents
+                .filter(function(d) {
+                    return d.key == "CRUISE";
+                })[0].values.map(function(v) {
+                    return v.value;
+                });
+            var descentIncidents = incidents
+                .filter(function(d) {
+                    return d.key == "DESCENT";
+                })[0].values.map(function(v) {
+                    return v.value;
+                });
+            var approachIncidents = incidents
+                .filter(function(d) {
+                    return d.key == "APPROACH";
+                })[0].values.map(function(v) {
+                    return v.value;
+                });
+            var landingIncidents = incidents
+                .filter(function(d) {
+                    return d.key == "LANDING";
+                })[0].values.map(function(v) {
+                    return v.value;
+                });
 
-            xScale.domain(currentIncidents.map(function(d) {
+            xScale.domain(standingIncidents.map(function(d) {
                 return d.make;
             }));
-
             yScale.domain([0, d3.max(incidents.filter(function(f) {
                 return f.key != "";
             }).map(function(d) {
                 return d3.max(d.values.map(function(v) {
-                    return d3.max([v.value.fatal, v.value.serious, v.value.uninjured]);
+                    return d3.max([v.value.fatal, v.value.serious]);//, v.value.uninjured]);
                 }));
             }))]);
 
-            bars.append('g')
-                .attr('class', 'x axis')
-                .attr('transform', function(d) {
-                    return 'translate(' + bigBuffer + ', ' + (height - bigBuffer) + ')';
-                })
-                .call(xAxis);
+            buildChart(standingBars, standingIncidents);
+            buildChart(taxiBars, taxiIncidents);
+            buildChart(takeoffBars, takeoffIncidents);
+            buildChart(climbBars, climbIncidents);
+            buildChart(cruiseBars, cruiseIncidents);
+            buildChart(descentBars, descentIncidents);
+            buildChart(approachBars, approachIncidents);
+            buildChart(landingBars, landingIncidents);
 
-            bars.append('g')
-                .attr('class', 'y axis')
-                .attr('transform', function(d) {
-                    return 'translate(' + bigBuffer + ', 0)';
-                })
-                .call(yAxis);
-
-            bars.append('g')
-                .selectAll('.fatalBar')
-                .data(currentIncidents)
-                .enter()
-                .append('rect')
-                .attr('class', 'fatalBar')
-                .attr('x', function(d) {
-                    return bigBuffer + xScale(d.make) + (xScale.bandwidth() * .15);
-                })
-                .attr('y', function(d) {
-                    return yScale(d.fatal);
-                })
-                .attr('width', xScale.bandwidth() * .2)
-                .attr('height', function(d) {
-                    return height - yScale(d.fatal) - bigBuffer;
-                });
-            bars.append('g')
-                .selectAll('.seriousBar')
-                .data(currentIncidents)
-                .enter()
-                .append('rect')
-                .attr('class', 'seriousBar')
-                .attr('x', function(d) {
-                    return bigBuffer + xScale(d.make) + (xScale.bandwidth() * .4);
-                })
-                .attr('y', function(d) {
-                    return yScale(d.serious);
-                })
-                .attr('width', xScale.bandwidth() * .2)
-                .attr('height', function(d) {
-                    return height - yScale(d.serious) - bigBuffer;
-                });
+            function buildChart(bars, incidentData) {
                 bars.append('g')
-                    .selectAll('.uninjuredBar')
-                    .data(currentIncidents)
+                    .attr('class', 'x axis')
+                    .attr('transform', function(d) {
+                        return 'translate(' + bigBuffer + ', ' + (height - bigBuffer) + ')';
+                    })
+                    .call(xAxis);
+                bars.append('g')
+                    .attr('class', 'y axis')
+                    .attr('transform', function(d) {
+                        return 'translate(' + bigBuffer + ', 0)';
+                    })
+                    .call(yAxis);
+                bars.append('g')
+                    .selectAll('.fatalBar')
+                    .data(incidentData)
                     .enter()
                     .append('rect')
-                    .attr('class', 'uninjuredBar')
+                    .attr('class', 'fatalBar')
                     .attr('x', function(d) {
-                        return bigBuffer + xScale(d.make) + (xScale.bandwidth() * .65);
+                        return bigBuffer + xScale(d.make) + (xScale.bandwidth() * .15);
                     })
                     .attr('y', function(d) {
-                        return yScale(d.uninjured);
+                        return yScale(d.fatal);
                     })
                     .attr('width', xScale.bandwidth() * .2)
                     .attr('height', function(d) {
-                        return height - yScale(d.uninjured) - bigBuffer;
+                        return height - yScale(d.fatal) - bigBuffer;
                     });
+                bars.append('g')
+                    .selectAll('.seriousBar')
+                    .data(incidentData)
+                    .enter()
+                    .append('rect')
+                    .attr('class', 'seriousBar')
+                    .attr('x', function(d) {
+                        return bigBuffer + xScale(d.make) + (xScale.bandwidth() * .4);
+                    })
+                    .attr('y', function(d) {
+                        return yScale(d.serious);
+                    })
+                    .attr('width', xScale.bandwidth() * .2)
+                    .attr('height', function(d) {
+                        return height - yScale(d.serious) - bigBuffer;
+                    });
+                // bars.append('g')
+                //     .selectAll('.uninjuredBar')
+                //     .data(incidentData)
+                //     .enter()
+                //     .append('rect')
+                //     .attr('class', 'uninjuredBar')
+                //     .attr('x', function(d) {
+                //         return bigBuffer + xScale(d.make) + (xScale.bandwidth() * .65);
+                //     })
+                //     .attr('y', function(d) {
+                //         return yScale(d.uninjured);
+                //     })
+                //     .attr('width', xScale.bandwidth() * .2)
+                //     .attr('height', function(d) {
+                //         return height - yScale(d.uninjured) - bigBuffer;
+                //     });
+            }
         }
     );
 }
