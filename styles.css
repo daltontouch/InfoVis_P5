@@ -8,6 +8,7 @@
     fill: purple;
 }
 .visibleButton{
+    transition: text 5s ease;
     visibility: visible;
 }
 .invisibleButton {
