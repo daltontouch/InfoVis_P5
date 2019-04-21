@@ -15,16 +15,33 @@ function start() {
     var currentPhase = "STANDING";
 
     var svg = d3
-        .select(graph)
+        .select('img/#FlightGraphic')
         .append('svg')
         .attr('width', width)
         .attr('height', height);
 
-    //Navigation Buttons
-    d3.select(buttonBar).append('button').text('Click Me!');
-    d3.select(buttonBar).append('button').text('No, click me!');
+    // var flightChart = d3.xml('img/FlightGraphic.svg', 'image/svg+xml', function(
+    //     xml
+    // ) {
+    //     var importedNode = document.importNode(xml.documentElement, true);
+    //     d3.select('div#flightChart').each(function() {
+    //         this.appendChild(importedNode);
+    //     });
+    // });
 
-    var bars = svg.append('g');
+    // .then(data => {
+    //     document.body.append(data.documentElement);
+    // });
+
+    //Navigation Buttons
+    d3.select(buttonBar)
+        .append('button')
+        .text('Click Me!');
+    d3.select(buttonBar)
+        .append('button')
+        .text('No, click me!');
+
+    // var bars = svg.append('g');
 
     var xScale = d3.scaleBand().rangeRound([0, width - (bigBuffer * 2)], 0.3);
     var yScale = d3.scaleLinear().range([height - bigBuffer, littleBuffer]);
