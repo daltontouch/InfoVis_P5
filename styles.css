@@ -1,9 +1,58 @@
+body {
+    /* height: 100%; */
+    padding-top: 20px;
+    background-color: black;
+}
+
+h1 {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+#page-title {
+    color: white;
+    padding-bottom: 50px;
+}
+
+.centered {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-story {
+    padding-bottom: 50px;
+    color: white;
+}
+
+text {
+    fill: white;
+}
+
+.card {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+    background-color: blue;
+}
+
+.axis path {
+    stroke: white;
+}
+
+.axis line {
+    stroke: white;
+}
+
 .fatalBar {
     fill: steelblue;
 }
+
 .seriousBar {
     fill: red;
 }
+
 .uninjuredBar {
     fill: purple;
 }

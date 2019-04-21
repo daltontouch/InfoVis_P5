@@ -1,10 +1,10 @@
 window.onload = start;
 
 function start() {
-    var graph = document.getElementById('graph');
+    var graph1 = document.getElementById('graph1');
     var buttonBar = document.getElementById('buttonBar');
 
-    console.log(graph);
+    console.log(graph1);
     console.log(buttonBar);
 
     var width = 900;
@@ -15,55 +15,22 @@ function start() {
     var currentPhase = 'STANDING';
 
     var svg = d3
-        //.select('img/#FlightGraphic')
-        .select(graph)
+        //.select('img/#Flightgraph1ic')
+        .select(graph1)
         .append('svg')
         .attr('width', width)
         .attr('height', height);
 
-    // var gButtonBar = d3
-    //     .select(buttonBar)
-    //     .append('svg')
-    //     .attr('width', '1000')
-    //     .attr('height', '600');
-
-    // var flightChart = d3.xml('img/d3.svg', 'image/svg+xml', function(xml) {
-    //     var importedNode = document.importNode(xml.documentElement, true);
-    //     d3.select('div#buttonBar').each(function() {
-    //         this.appendChild(importedNode);
-    //     });
-    // });
-
-    var FlightGraphic = d3
-        .select('#buttonBar')
-        .append('svg')
-        .attr('src', 'img/FlightGraphic_new.svg')
-        .attr('width', width)
-        .attr('height', width * 0.6);
-
-    // d3.xml('img/FlightGraphic.svg', 'image/svg+xml', function(xml) {
-    //     var importedNode = document.importNode(xml.documentElement, true);
-    //     d3.select('div#buttonBar').each(function() {
-    //         this.appendChild(importedNode);
-    //     });
-    // });
+    // var Flightgraph1ic = d3
+    //     .select('#buttonBar')
+    //     .append('img')
+    //     .attr('src', 'img/flightGraphic_new.svg')
+    //     .attr('width', width)
+    //     .attr('height', height);
 
     //Navigation Buttons
-    d3.select(buttonBar)
-        .append('button')
-        .text('Click Me!');
-    d3.select(buttonBar)
-        .append('button')
-        .text('No, click me!');
-
-    // var FlightGraphic = gButtonBar
-    //     .append('image')
-    //     .attr('xlink:href', 'img/FlightGraphic.svg')
-    //     .attr('width', 1000)
-    //     .attr('height', 600)
-    //     .then(data => {
-    //         document.body.append(data.documentElement);
-    //     });
+    // d3.select(buttonBar).append('button').text('Click Me!');
+    // d3.select(buttonBar).append('button').text('No, click me!');
 
     var bars = svg.append('g');
 
@@ -160,7 +127,7 @@ function start() {
 
             bars
                 .append('g')
-                .attr('class', 'x axis')
+                .attr('class', 'axis')
                 .attr('transform', function(d) {
                     return 'translate(' + bigBuffer + ', ' + (height - bigBuffer) + ')';
                 })
@@ -168,7 +135,7 @@ function start() {
 
             bars
                 .append('g')
-                .attr('class', 'y axis')
+                .attr('class', 'axis')
                 .attr('transform', function(d) {
                     return 'translate(' + bigBuffer + ', 0)';
                 })
