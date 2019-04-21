@@ -19,7 +19,7 @@ function start() {
     var littleBuffer = 10;
     var bigBuffer = 40;
 
-    var currentPhase = "STANDING";
+    var currentPhase = 'STANDING';
 
     var standingSvg = d3
         .select(standingGraph)
@@ -62,17 +62,31 @@ function start() {
         .attr('width', width)
         .attr('height', height);
 
-    // var flightChart = d3.xml('img/FlightGraphic.svg', 'image/svg+xml', function(
-    //     xml
-    // ) {
+    // var gButtonBar = d3
+    //     .select(buttonBar)
+    //     .append('svg')
+    //     .attr('width', '1000')
+    //     .attr('height', '600');
+
+    // var flightChart = d3.xml('img/d3.svg', 'image/svg+xml', function(xml) {
     //     var importedNode = document.importNode(xml.documentElement, true);
-    //     d3.select('div#flightChart').each(function() {
+    //     d3.select('div#buttonBar').each(function() {
     //         this.appendChild(importedNode);
     //     });
     // });
 
-    // .then(data => {
-    //     document.body.append(data.documentElement);
+    var FlightGraphic = d3
+        .select('#buttonBar')
+        .append('svg')
+        .attr('src', 'img/FlightGraphic_new.svg')
+        .attr('width', width)
+        .attr('height', width * 0.6);
+
+    // d3.xml('img/FlightGraphic.svg', 'image/svg+xml', function(xml) {
+    //     var importedNode = document.importNode(xml.documentElement, true);
+    //     d3.select('div#buttonBar').each(function() {
+    //         this.appendChild(importedNode);
+    //     });
     // });
 
     //Navigation Buttons
@@ -92,7 +106,7 @@ function start() {
     var approachBars = approachSvg.append('g');
     var landingBars = landingSvg.append('g');
 
-    var xScale = d3.scaleBand().rangeRound([0, width - (bigBuffer * 2)], 0.3);
+    var xScale = d3.scaleBand().rangeRound([0, width - bigBuffer * 2], 0.3);
     var yScale = d3.scaleLinear().range([height - bigBuffer, littleBuffer]);
 
     var xAxis = d3.axisBottom(xScale);
@@ -119,24 +133,40 @@ function start() {
             return d;
         },
         function(error, data) {
-            var incidents = d3.nest()
-                .key(function(d) { return d.Broad_Phase_of_Flight; })
+            var incidents = d3
+                .nest()
+                .key(function(d) {
+                    return d.Broad_Phase_of_Flight;
+                })
                 .sortKeys(d3.ascending)
-                .key(function(d) { return d.Make; })
+                .key(function(d) {
+                    return d.Make;
+                })
                 .sortKeys(d3.ascending)
                 //.key(function(d) { return d.Broad_Phase_of_Flight; })
-                .rollup(function(v) { return {
-                    make: v.map(function(d) { return d.Make })[0],
-                    fatal: d3.sum(v, function (d) { return +d.Total_Fatal_Injuries; }),
-                    serious: d3.sum(v, function (d) { return +d.Total_Serious_Injuries; }),
-                    uninjured: d3.sum(v, function (d) { return +d.Total_Uninjured; })
-                 }; })
+                .rollup(function(v) {
+                    return {
+                        make: v.map(function(d) {
+                            return d.Make;
+                        })[0],
+                        fatal: d3.sum(v, function(d) {
+                            return +d.Total_Fatal_Injuries;
+                        }),
+                        serious: d3.sum(v, function(d) {
+                            return +d.Total_Serious_Injuries;
+                        }),
+                        uninjured: d3.sum(v, function(d) {
+                            return +d.Total_Uninjured;
+                        }),
+                    };
+                })
                 .entries(data);
 
             var standingIncidents = incidents
                 .filter(function(d) {
-                    return d.key == "STANDING";
-                })[0].values.map(function(v) {
+                    return d.key == 'STANDING';
+                })[0]
+                .values.map(function(v) {
                     return v.value;
                 });
             var taxiIncidents = incidents
