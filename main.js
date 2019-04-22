@@ -11,7 +11,7 @@ function start() {
     var littleBuffer = 10;
     var bigBuffer = 40;
 
-    var currentPhase = 'STANDING';
+    var currentPhase = 'OVERVIEW';
 
     const overviewText = "The strongest trends that we noticed while exploring the data were the relationships between number of injuries/fatalities and the manufacturer of the aircraft. In this first chart, we present an overview, a view of how many total accidents have been reported per aircraft manufacturer. The red bars represent number of fatalities, and the yellow bars represent serious injuries. One thing to keep in mind here is that these results DO NOT indicate that Boeing aircraft have a higher RATE of accidents than the other manufacturer’s products. Rather, there are simply more aircraft that have been produced by Boeing than those produced by other manufacturers.";
     const standingText = "";
@@ -251,7 +251,7 @@ function start() {
         y.merge(newY).transition(t).call(yAxis);
 
         document.getElementById('graphTitle').innerHTML =
-            'Flight Phase: ' + currentPhase;
+            'Flight Phase: ' + currentPhase.charAt(0) + currentPhase.slice(1).toLowerCase();
     }
 
     function overviewBars() {
@@ -355,7 +355,7 @@ function start() {
         y.merge(newY).transition(t).call(yAxis);
 
         document.getElementById('graphTitle').innerHTML =
-            'Flight Phase: ' + currentPhase;
+            'Overview';
     }
 
     function miscBars() {
@@ -525,7 +525,7 @@ function start() {
         y.merge(newY).transition(t).call(yAxis);
 
         document.getElementById('graphTitle').innerHTML =
-            'Flight Phase: ' + currentPhase;
+            'Miscellaneous/Unknown Flight Phases';
     }
 
     var standingBars = standingSvg.append('g');
@@ -750,6 +750,7 @@ function start() {
             ]);
 
             buildChart(standingBars);
+            updateText();
 
             function buildChart(bars) {
                 bars
