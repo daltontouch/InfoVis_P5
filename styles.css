@@ -65,7 +65,8 @@ text {
 .uninjuredBar {
     fill: purple;
 }
-.visibleButton{
+
+.visibleButton {
     transition: text 5s ease;
     visibility: visible;
 }
