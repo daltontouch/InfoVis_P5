@@ -14,15 +14,15 @@ function start() {
     var currentPhase = 'OVERVIEW';
 
     const overviewText = "The strongest trends that we noticed while exploring the data were the relationships between number of injuries/fatalities and the manufacturer of the aircraft. In this first chart, we present an overview, a view of how many total accidents have been reported per aircraft manufacturer. The red bars represent number of fatalities, and the yellow bars represent serious injuries. One thing to keep in mind here is that these results DO NOT indicate that Boeing aircraft have a higher RATE of accidents than the other manufacturer’s products. Rather, there are simply more aircraft that have been produced by Boeing than those produced by other manufacturers.";
-    const standingText = "";
-    const taxiText = "";
-    const takeoffText = "";
-    const climbingText = "";
-    const cruisingText = "";
-    const descentText = "";
-    const approachText = "";
-    const landingText = "";
-    const miscText = "";
+    const standingText = "Standing means that the aircraft is motionless on the tarmac, such as when passengers are boarding. During standing, it is evident that Boeing planes had the most incidents. Again, it’s helpful to remember that Boeing aircraft carry the most passengers.";
+    const taxiText = "Taxiing is when the aircraft is moving across the runway to get into position for takeoff. It is interesting to notice that Bombardier has the most fatalities during taxiing. This is most likely due to a single catastrophic failure event.";
+    const takeoffText = "Takeoff is the brief period of time during which the aircraft is moving down the runway under its own power, during which the engines are throttled up and the pilots are seeking liftoff speed. It also extends some time after the wheels leave the ground. Once the plane is a few hundred feet high, takeoff is over. Airbus leads the pack here for fatalities. This is most likely due to a single catastrophic failure event.";
+    const climbText = "Climbing is the longer period of time during which the pilot seeks to gain altitude. Of note is the Ethiopian Airlines crash, where a Boeing 777 crashed during the climbing phase. ";
+    const cruiseText = "Cruising is the longest flight phase, during which the plane’s altitude remains fairly constant and engine thrust is tapered off from the climbing phases. Typically speed remains constant as well. Incidents in this phase are much more uncommon. Of note is the Malaysia Airlines accident.";
+    const descentText = "Descending begins when the pilot eases the nose of the aircraft downward, to lose altitude once near the destination.";
+    const approachText = "Approach begins after descending once the pilot noses the plane upward, to slow the plane and ease into a soft landing.";
+    const landingText = "Landing is when the wheels of the plane have touched down but the plane is still in motion.";
+    const miscText = "Miscellaneous contains all of the data cases for which the flight phase was blank, null, or the unclear notation “maneuvering”.";
 
 
     var standingSvg = d3
